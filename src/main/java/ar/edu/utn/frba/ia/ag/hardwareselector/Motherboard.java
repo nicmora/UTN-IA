@@ -52,15 +52,15 @@ public class Motherboard extends Componente {
 			case 6: {
 				this.setId(6);
 				this.setModelo("INVALIDO");
-				this.setSocketProcesador(null);
-				this.setSocketMemoria(null);
+				this.setSocketProcesador("");
+				this.setSocketMemoria("");
 				this.setPrecio(null);
 			}
 			case 7: {
 				this.setId(7);
 				this.setModelo("INVALIDO");
-				this.setSocketProcesador(null);
-				this.setSocketMemoria(null);
+				this.setSocketProcesador("");
+				this.setSocketMemoria("");
 				this.setPrecio(null);
 			}
 		}

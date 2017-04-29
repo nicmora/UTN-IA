@@ -27,7 +27,7 @@ public class Procesador extends Componente {
 			case 3: {
 				this.setId(3);
 				this.setModelo("AMD_APU_A10_7890K");
-				this.setGeneracion(null);
+				this.setGeneracion(1);
 				this.setPrecio(3300);
 			}
 			case 4: {
@@ -39,7 +39,7 @@ public class Procesador extends Componente {
 			case 5: {
 				this.setId(5);
 				this.setModelo("INTEL_PENTIUM_G4400");
-				this.setGeneracion(null);
+				this.setGeneracion(1);
 				this.setPrecio(1600);
 			}
 			case 6: {

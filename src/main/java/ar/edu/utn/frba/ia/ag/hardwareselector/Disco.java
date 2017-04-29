@@ -53,15 +53,15 @@ public class Disco extends Componente {
 				this.setId(6);
 				this.setModelo("INVALIDO");
 				this.setPrecio(null);
-				this.capacidad = null;
-				this.teconologia = null;
+				this.capacidad = 0;
+				this.teconologia = "";
 			}
 			case 7: {
 				this.setId(7);
 				this.setModelo("INVALIDO");
 				this.setPrecio(null);
-				this.capacidad = null;
-				this.teconologia = null;
+				this.capacidad = 0;
+				this.teconologia = "";
 			}
 		}
 	}
