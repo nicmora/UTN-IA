@@ -1,56 +1,75 @@
 package main.java.ar.edu.utn.frba.ia.ag.hardwareselector;
 
+import java.util.Random;
+
 import main.java.ar.edu.utn.frba.ia.ag.Individuo;
 
-public class Cromosoma extends Individuo {
+public class Hardware extends Individuo {
 
 	//--- Atributos ---//
-	private Integer procesador;
-	private Integer motherboard;
-	private Integer ram;
-	private Integer disco;
-	private Integer so;
+	private Procesador procesador;
+	private Motherboard motherboard;
+	private RAM ram;
+	private Disco disco;
+	private SO so;
 	
 	//--- Getters & Setters ---//
-	public Integer getProcesador() {
+	public Procesador getProcesador() {
 		return procesador;
 	}
 
-	public void setProcesador(Integer procesador) {
+	public void setProcesador(Procesador procesador) {
 		this.procesador = procesador;
 	}
 
-	public Integer getMotherboard() {
+	public Motherboard getMotherboard() {
 		return motherboard;
 	}
 
-	public void setMotherboard(Integer motherboard) {
+	public void setMotherboard(Motherboard motherboard) {
 		this.motherboard = motherboard;
 	}
 
-	public Integer getRam() {
+	public RAM getRam() {
 		return ram;
 	}
 
-	public void setRam(Integer ram) {
+	public void setRam(RAM ram) {
 		this.ram = ram;
 	}
 
-	public Integer getDisco() {
+	public Disco getDisco() {
 		return disco;
 	}
 
-	public void setDisco(Integer disco) {
+	public void setDisco(Disco disco) {
 		this.disco = disco;
 	}
-
-	public Integer getSo() {
+	
+	public SO getSo() {
 		return so;
 	}
 
-	public void setSo(Integer so) {
+	public void setSo(SO so) {
 		this.so = so;
 	}
+	
+    @Override
+    public Individuo generarRandom() {
+    	
+    	Hardware hardware = new Hardware();
+    	Random random = new Random();
+    	
+        // random.nextInt(max - min + 1) + min
+    	hardware.setProcesador(new Procesador(random.nextInt(7 - 0 + 1) + 0));
+    	hardware.setMotherboard(new Motherboard(random.nextInt(7 - 0 + 1) + 0));
+    	hardware.setRam(new RAM(random.nextInt(3 - 0 + 1) + 0));
+    	hardware.setDisco(new Disco(random.nextInt(8 - 0 + 1) + 0));
+    	hardware.setSo(new SO(random.nextInt(3 - 0 + 1) + 0));
+
+    	return hardware;
+    }
+    
 
 	//--- Funcion de aptitud ---//
 	@Override
@@ -85,11 +104,6 @@ public class Cromosoma extends Individuo {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-//    @Override
-//    public Individuo generarRandom() {
-//
-//    }
 	
 //    @Override
 //    public String toString() {
