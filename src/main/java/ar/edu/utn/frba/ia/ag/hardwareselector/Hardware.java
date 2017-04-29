@@ -64,7 +64,7 @@ public class Hardware extends Individuo {
     	hardware.setProcesador(new Procesador(random.nextInt(7 - 0 + 1) + 0));
     	hardware.setMotherboard(new Motherboard(random.nextInt(7 - 0 + 1) + 0));
     	hardware.setRam(new RAM(random.nextInt(3 - 0 + 1) + 0));
-    	hardware.setDisco(new Disco(random.nextInt(8 - 0 + 1) + 0));
+    	hardware.setDisco(new Disco(random.nextInt(7 - 0 + 1) + 0));
     	hardware.setSo(new SO(random.nextInt(3 - 0 + 1) + 0));
 
     	return hardware;
@@ -77,7 +77,6 @@ public class Hardware extends Individuo {
 
 		double total = 0;
 		
-		total += this.verificarCondicionesNecesarias();
 		total += this.verificarCondicionesDeseables();
 		total += this.verificarRestriccionesVioladas();
 		total += this.verificarCombinacionesInvalidas();
@@ -85,24 +84,90 @@ public class Hardware extends Individuo {
 		return total;
 	}
 
-	private double verificarCondicionesNecesarias() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 	private double verificarCondicionesDeseables() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		double puntosAptitud = 0;
+		
+		//TODO: se puede mejorar modificando los atributos
+		//Si el procesador es Core i7, sumar 100 puntos.
+		if(this.procesador.getId().equals(1) 
+			|| this.procesador.getId().equals(4)
+			|| this.procesador.getId().equals(7)) {
+				puntosAptitud += 100;
+		}
+		
+		//TODO: se puede mejorar modificando los atributos
+		//Si el procesador es Core i5, sumar 60 puntos.
+		if(this.procesador.getId().equals(0) 
+			|| this.procesador.getId().equals(6)) {
+				puntosAptitud += 60;
+		}
+		
+		//Si el procesador es 7ma Gen, sumar 40 puntos.
+		if(this.procesador.getGeneracion().equals(7)) {
+			puntosAptitud += 40;
+		}
+		
+		//Si el procesador es 6ta Gen, sumar 25 puntos.
+		if(this.procesador.getGeneracion().equals(6)) {
+			puntosAptitud += 25;
+		}
+		
+		//Si la RAM es DDR4, sumar 20 puntos.
+		if(this.ram.getTecnologia().equals("DDR4")) {
+			puntosAptitud += 20;
+		}
+		
+		//Si el Disco Rígido es SSD, sumar 15 puntos.
+		if(this.disco.getTeconologia().equals("SSD")) {
+			puntosAptitud += 15;
+		}
+		
+		return puntosAptitud;
 	}
 	
 	private double verificarRestriccionesVioladas() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		double puntosAptitud = 0;
+		
+		//Si la RAM es superior a 8 GB y tiene Windows 10 Home Edition, pero no tiene arquitectura x64, restar 50 puntos.
+		if(this.ram.getCapacidad() > 8
+			&& this.so.getModelo().equals("WINDOWS_10_HOME_EDITION")
+			&& !this.so.getArquitectura().equals("x64")) {
+			puntosAptitud -= 50;
+		}
+		
+		////Cualquier solución que no cumpla al menos con las CN resta 500 puntos.
+		//El procesador debe ser Intel Core i3 o i5 o i7.
+		
+		
+		//El procesador debe ser 4ta, 6ta o 7ma Gen.
+		
+		
+		//La RAM debe ser DDR3 o DDR4.
+		
+		
+		//La RAM debe ser superior a 2 GB.
+		
+		
+		//El Disco Rígido debe ser superior a 320 GB.
+		
+		
+		//El SO debe ser Windows 10 Home Edition.
+
+		
+		
+		//Si la suma total del precio de todas las prestaciones es mayor a 18.500$ resta 500 puntos.
+
+		
+		return puntosAptitud;
 	}
 
 	private double verificarCombinacionesInvalidas() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		double puntosAptitud = 0;
+		
+		return puntosAptitud;
 	}
 	
 //    @Override
