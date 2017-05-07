@@ -231,7 +231,15 @@ public class Hardware extends Individuo {
 	
     @Override
     public String toString() {
-    	return "";
+    	
+    	StringBuilder strBuilder = new StringBuilder();
+    	strBuilder.append("Procesador: ").append(this.procesador.getModelo()).append("\n");
+    	strBuilder.append("Motherboard: ").append(this.motherboard.getModelo()).append("\n");
+    	strBuilder.append("RAM: ").append(this.ram.getModelo()).append("\n");
+    	strBuilder.append("Disco: ").append(this.disco.getModelo()).append("\n");
+    	strBuilder.append("SO: ").append(this.so.getModelo()).append("\n");
+    	
+    	return strBuilder.toString();
     }
 	
 }

@@ -51,6 +51,7 @@ public class Procesador extends Componente {
 			case 6: {
 				this.setId(6);
 				this.setModelo("INTEL_CORE_I5-7600_PROCESSOR");
+				this.setGeneracion(7);
 				this.setPrecio(5200);
 				break;
 			}
