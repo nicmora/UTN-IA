@@ -13,6 +13,7 @@ public class Disco extends Componente {
 				this.setPrecio(1800);
 				this.capacidad = 1024;
 				this.teconologia = "HDD";
+				break;
 			}
 			case 1: {
 				this.setId(1);
@@ -20,6 +21,7 @@ public class Disco extends Componente {
 				this.setPrecio(1000);
 				this.capacidad = 500;
 				this.teconologia = "HDD";
+				break;
 			}
 			case 2: {
 				this.setId(2);
@@ -27,6 +29,7 @@ public class Disco extends Componente {
 				this.setPrecio(3500);
 				this.capacidad = 500;
 				this.teconologia = "SSD";
+				break;
 			}
 			case 3: {
 				this.setId(3);
@@ -34,6 +37,7 @@ public class Disco extends Componente {
 				this.setPrecio(4200);
 				this.capacidad = 1024;
 				this.teconologia = "SSD";
+				break;
 			}
 			case 4: {
 				this.setId(4);
@@ -41,6 +45,7 @@ public class Disco extends Componente {
 				this.setPrecio(700);
 				this.capacidad = 250;
 				this.teconologia = "HDD";
+				break;
 			}
 			case 5: {
 				this.setId(5);
@@ -48,6 +53,7 @@ public class Disco extends Componente {
 				this.setPrecio(1100);
 				this.capacidad = 320;
 				this.teconologia = "HDD";
+				break;
 			}
 			case 6: {
 				this.setId(6);
@@ -55,6 +61,7 @@ public class Disco extends Componente {
 				this.setPrecio(null);
 				this.capacidad = 0;
 				this.teconologia = "";
+				break;
 			}
 			case 7: {
 				this.setId(7);
@@ -62,6 +69,7 @@ public class Disco extends Componente {
 				this.setPrecio(null);
 				this.capacidad = 0;
 				this.teconologia = "";
+				break;
 			}
 		}
 	}

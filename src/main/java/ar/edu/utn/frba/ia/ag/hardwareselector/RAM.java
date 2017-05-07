@@ -15,6 +15,7 @@ public class RAM extends Componente {
 				this.capacidad = 2;
 				this.frecuencia = 800;
 				this.tecnologia = "DDR2";
+				break;
 			}
 			case 1: {
 				this.setId(1);
@@ -23,6 +24,7 @@ public class RAM extends Componente {
 				this.capacidad = 8;
 				this.frecuencia = 1866;
 				this.tecnologia = "DDR3";
+				break;
 			}
 			case 2: {
 				this.setId(2);
@@ -31,6 +33,7 @@ public class RAM extends Componente {
 				this.capacidad = 16;
 				this.frecuencia = 1866;
 				this.tecnologia = "DDR3";
+				break;
 			}
 			case 3: {
 				this.setId(3);
@@ -39,6 +42,7 @@ public class RAM extends Componente {
 				this.capacidad = 16;
 				this.frecuencia = 2400;
 				this.tecnologia = "DDR4";
+				break;
 			}
 		}
 	}
