@@ -58,7 +58,7 @@ public class Disco extends Componente {
 			case 6: {
 				this.setId(6);
 				this.setModelo("INVALIDO");
-				this.setPrecio(null);
+				this.setPrecio(0);
 				this.capacidad = 0;
 				this.tecnologia = "";
 				break;
@@ -66,7 +66,7 @@ public class Disco extends Componente {
 			case 7: {
 				this.setId(7);
 				this.setModelo("INVALIDO");
-				this.setPrecio(null);
+				this.setPrecio(0);
 				this.capacidad = 0;
 				this.tecnologia = "";
 				break;

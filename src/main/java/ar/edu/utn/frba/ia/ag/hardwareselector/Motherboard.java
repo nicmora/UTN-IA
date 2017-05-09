@@ -60,7 +60,7 @@ public class Motherboard extends Componente {
 				this.setModelo("INVALIDO");
 				this.setSocketProcesador("");
 				this.setSocketMemoria("");
-				this.setPrecio(null);
+				this.setPrecio(0);
 				break;
 			}
 			case 7: {
@@ -68,7 +68,7 @@ public class Motherboard extends Componente {
 				this.setModelo("INVALIDO");
 				this.setSocketProcesador("");
 				this.setSocketMemoria("");
-				this.setPrecio(null);
+				this.setPrecio(0);
 				break;
 			}
 		}

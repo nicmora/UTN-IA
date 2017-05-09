@@ -7,8 +7,8 @@ import main.java.ar.edu.utn.frba.ia.ag.ConfiguracionDefault;
 import main.java.ar.edu.utn.frba.ia.ag.Individuo;
 import main.java.ar.edu.utn.frba.ia.ag.cruzamiento.Simple;
 import main.java.ar.edu.utn.frba.ia.ag.mutacion.MutacionSimple;
-import main.java.ar.edu.utn.frba.ia.ag.paro.CantidadDeCiclos;
-import main.java.ar.edu.utn.frba.ia.ag.seleccion.Ranking;
+import main.java.ar.edu.utn.frba.ia.ag.paro.AptitudMinima;
+import main.java.ar.edu.utn.frba.ia.ag.seleccion.Torneo;
 
 public class Main {
 
@@ -16,9 +16,9 @@ public class Main {
 		
         ConfiguracionDefault c = new ConfiguracionDefault();
 
-        c.setPoblacionInicial(999);
-        c.setCriterioDeParo(new CantidadDeCiclos(499L));
-        c.setMetodoDeSeleccion(new Ranking(50));
+        c.setPoblacionInicial(9999);
+        c.setCriterioDeParo(new AptitudMinima(400));
+        c.setMetodoDeSeleccion(new Torneo());
         c.setCruzamiento(new Simple());
         c.setMutacion(new MutacionSimple(0.2));
         

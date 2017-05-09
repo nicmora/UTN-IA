@@ -90,32 +90,32 @@ public class Hardware extends Individuo {
 		
 		//Si el procesador es Core i7, sumar 100 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I7")) {
-			puntosAptitud += 120;
+			puntosAptitud += 590;
 		}
 		
 		//Si el procesador es Core i5, sumar 60 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I5")) {
-			puntosAptitud += 100;
+			puntosAptitud += 510;
 		}
 		
 		//Si el procesador es 7ma Gen, sumar 40 puntos.
 		if(this.procesador.getGeneracion().equals(7)) {
-			puntosAptitud += 80;
+			puntosAptitud += 490;
 		}
 		
 		//Si el procesador es 6ta Gen, sumar 25 puntos.
 		if(this.procesador.getGeneracion().equals(6)) {
-			puntosAptitud += 60;
+			puntosAptitud += 410;
 		}
 		
 		//Si la RAM es DDR4, sumar 20 puntos.
 		if(this.ram.getTecnologia().equals("DDR4")) {
-			puntosAptitud += 40;
+			puntosAptitud += 390;
 		}
 		
 		//Si el Disco Rígido es SSD, sumar 15 puntos.
 		if(this.disco.getTecnologia().equals("SSD")) {
-			puntosAptitud += 20;
+			puntosAptitud += 290;
 		}
 		
 		return puntosAptitud;
@@ -174,7 +174,7 @@ public class Hardware extends Individuo {
 		}
 				
 		// La RAM debe ser DDR3 o DDR4.
-		if(!(this.ram.getTecnologia().equals("DD3") || this.ram.getTecnologia().equals("DD4"))) {
+		if(!(this.ram.getTecnologia().equals("DDR3") || this.ram.getTecnologia().equals("DDR4"))) {
 			combinacionInvalida = true;
 		}
 			
@@ -208,7 +208,7 @@ public class Hardware extends Individuo {
 		}
 		
 		if(combinacionInvalida) {
-			puntosAptitud -= 500;			
+			puntosAptitud -= 5000;			
 		}
 		
 		return puntosAptitud;
@@ -221,9 +221,10 @@ public class Hardware extends Individuo {
        strBuilder.append("\n");
        strBuilder.append("Procesador: ").append(this.procesador.getModelo()).append("\n");
        strBuilder.append("Motherboard: ").append(this.motherboard.getModelo()).append("\n");
-       strBuilder.append("RAM: ").append(this.ram.getModelo()).append(" ").append(this.ram.getCapacidad()).append("GB").append(" ").append(this.ram.getTecnologia()).append("\n");
+       strBuilder.append("RAM: ").append(this.ram.getModelo()).append(" ").append(this.ram.getCapacidad()).append("GB").append(" ").append(this.ram.getFrecuencia()).append("MHZ").append(" ").append(this.ram.getTecnologia()).append("\n");
        strBuilder.append("Disco: ").append(this.disco.getModelo()).append(" ").append(this.disco.getCapacidad()).append("GB").append(" ").append(this.disco.getTecnologia()).append("\n");
        strBuilder.append("SO: ").append(this.so.getModelo()).append(" ").append(this.so.getArquitectura()).append("\n");
+       strBuilder.append("Precio = ").append(this.procesador.getPrecio() + this.motherboard.getPrecio() + this.ram.getPrecio() + this.disco.getPrecio() + this.so.getPrecio()).append("\n");
       
        return strBuilder.toString();
     }
