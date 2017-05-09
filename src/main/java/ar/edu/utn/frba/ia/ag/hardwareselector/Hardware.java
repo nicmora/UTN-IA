@@ -195,35 +195,66 @@ public class Hardware extends Individuo {
 
 	private double verificarCombinacionesInvalidas() {
 
+		boolean combinacionInvalida = false;
 		double puntosAptitud = 0;
 		
-		// Cualquier Motherboard que posea una característica marcada como
-		// inválida (con valor 110 o 111), resta 500 puntos.
-		// Cualquier Disco que posea una característica marcada como inválida
-		// (con valor 110 o 111), resta 500 puntos.
-		// Si el procesador es 4ta Gen y el Motherboard no tiene Socket 1150,
-		// resta 500 puntos.
-		// Si el procesador es 6ta Gen o 7ma Gen y el Motherboard no tiene
-		// Socket 1151, resta 500 puntos.
-		// Si la RAM es DDR4 y el Motherboard no soporta la tecnología DDR4,
-		// resta 500 puntos.
-		// El procesador debe ser Intel Core i3 o i5 o i7.
-		// El procesador debe ser 4ta, 6ta o 7ma Gen.
-		// La RAM debe ser DDR3 o DDR4.
-		// La RAM debe ser superior a 2 GB.
-		// El Disco Rígido debe ser superior a 320 GB.
-		// El SO debe ser Windows 10 Home Edition.
+		// Cualquier Motherboard que posea una característica marcada como inválida (con valor 110 o 111), resta 500 puntos.	
+		if (this.getMotherboard().getModelo().equals("INVALIDO")) {
+			combinacionInvalida = true;
+		}
 		
-		if (this.getMotherboard().getModelo().equals("INVALIDO") || this.disco.getModelo().equals("INVALIDO")
-				|| (this.procesador.getGeneracion() == 4 && !this.motherboard.getSocketProcesador().equals("LGA_1150"))
-				|| ((this.procesador.getGeneracion() == 6 || this.procesador.getGeneracion() == 7) && !this.motherboard.getSocketProcesador().equals("LGA_1151"))
-				|| (this.ram.getTecnologia().equals("DDR4") && !this.motherboard.getSocketMemoria().equals("DDR4")) || !this.procesador.getModelo().contains("I3")
-				|| !this.procesador.getModelo().contains("I5") || !this.procesador.getModelo().contains("I7") || this.procesador.getGeneracion() != 4
-				|| this.procesador.getGeneracion() != 6 || this.procesador.getGeneracion() != 7 || !this.ram.getTecnologia().equals("DD3")
-				|| !this.ram.getTecnologia().equals("DD4") || this.ram.getCapacidad() <= 2 || this.disco.getCapacidad() <= 320
-				|| !this.so.getModelo().equals("WINDOWS_10_HOME_EDITION")) {
+		// Cualquier Disco que posea una característica marcada como inválida (con valor 110 o 111), resta 500 puntos.
+		if(this.disco.getModelo().equals("INVALIDO")) {
+			combinacionInvalida = true;
+		}
+		
+		// Si el procesador es 4ta Gen y el Motherboard no tiene Socket 1150, resta 500 puntos.
+		if(this.procesador.getGeneracion() == 4 && !this.motherboard.getSocketProcesador().equals("LGA_1150")) {
+			combinacionInvalida = true;
+		}
+		
+		// Si el procesador es 6ta Gen o 7ma Gen y el Motherboard no tiene Socket 1151, resta 500 puntos.
+		if((this.procesador.getGeneracion() == 6 || this.procesador.getGeneracion() == 7) && !this.motherboard.getSocketProcesador().equals("LGA_1151")) {
+			combinacionInvalida = true;
+		}
+		
+		// Si la RAM es DDR4 y el Motherboard no soporta la tecnología DDR4, resta 500 puntos.
+		if(this.ram.getTecnologia().equals("DDR4") && !this.motherboard.getSocketMemoria().equals("DDR4")) {
+			combinacionInvalida = true;
+		}
 			
-			puntosAptitud -= 500;
+		// El procesador debe ser Intel Core i3 o i5 o i7.
+		if(!this.procesador.getModelo().contains("INTEL_CORE_I")) {
+			combinacionInvalida = true;
+		}
+		
+		// El procesador debe ser 4ta, 6ta o 7ma Gen.
+		if(!(this.procesador.getGeneracion() == 4 || this.procesador.getGeneracion() == 6 || this.procesador.getGeneracion() == 7)) {
+			combinacionInvalida = true;
+		}
+				
+		// La RAM debe ser DDR3 o DDR4.
+		if(!(this.ram.getTecnologia().equals("DD3") || this.ram.getTecnologia().equals("DD4"))) {
+			combinacionInvalida = true;
+		}
+			
+		// La RAM debe ser superior a 2 GB.
+		if(this.ram.getCapacidad() <= 2) {
+			combinacionInvalida = true;
+		}
+			
+		// El Disco Rígido debe ser superior a 320 GB.
+		if(this.disco.getCapacidad() <= 320) {
+			combinacionInvalida = true;
+		}
+		
+		// El SO debe ser Windows 10 Home Edition.
+		if(!this.so.getModelo().equals("WINDOWS_10_HOME_EDITION")) {
+			combinacionInvalida = true;
+		}
+		
+		if(combinacionInvalida) {
+			puntosAptitud -= 500;			
 		}
 		
 		return puntosAptitud;
