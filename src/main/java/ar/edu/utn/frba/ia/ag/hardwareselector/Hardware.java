@@ -88,39 +88,34 @@ public class Hardware extends Individuo {
 
 		double puntosAptitud = 0;
 		
-		//TODO: se puede mejorar modificando los atributos
 		//Si el procesador es Core i7, sumar 100 puntos.
-		if(this.procesador.getId().equals(1) 
-			|| this.procesador.getId().equals(4)
-			|| this.procesador.getId().equals(7)) {
-				puntosAptitud += 100;
+		if(this.procesador.getModelo().contains("INTEL_CORE_I7")) {
+			puntosAptitud += 120;
 		}
 		
-		//TODO: se puede mejorar modificando los atributos
 		//Si el procesador es Core i5, sumar 60 puntos.
-		if(this.procesador.getId().equals(0) 
-			|| this.procesador.getId().equals(6)) {
-				puntosAptitud += 60;
+		if(this.procesador.getModelo().contains("INTEL_CORE_I5")) {
+			puntosAptitud += 100;
 		}
 		
 		//Si el procesador es 7ma Gen, sumar 40 puntos.
 		if(this.procesador.getGeneracion().equals(7)) {
-			puntosAptitud += 40;
+			puntosAptitud += 80;
 		}
 		
 		//Si el procesador es 6ta Gen, sumar 25 puntos.
 		if(this.procesador.getGeneracion().equals(6)) {
-			puntosAptitud += 25;
+			puntosAptitud += 60;
 		}
 		
 		//Si la RAM es DDR4, sumar 20 puntos.
 		if(this.ram.getTecnologia().equals("DDR4")) {
-			puntosAptitud += 20;
+			puntosAptitud += 40;
 		}
 		
 		//Si el Disco Rígido es SSD, sumar 15 puntos.
 		if(this.disco.getTecnologia().equals("SSD")) {
-			puntosAptitud += 15;
+			puntosAptitud += 20;
 		}
 		
 		return puntosAptitud;
@@ -130,64 +125,9 @@ public class Hardware extends Individuo {
 
 		double puntosAptitud = 0;
 		
-		//Si la RAM es superior a 8 GB y tiene Windows 10 Home Edition, pero no tiene arquitectura x64, restar 50 puntos.
-		if(this.ram.getCapacidad() > 8
-			&& this.so.getModelo().equals("WINDOWS_10_HOME_EDITION")
-			&& !this.so.getArquitectura().equals("x64")) {
-			puntosAptitud -= 50;
-		}
-		
-		////Cualquier solución que no cumpla al menos con las CN resta 500 puntos.
-		//El procesador debe ser Intel Core i3 o i5 o i7.
-		if(!(this.procesador.getId().equals(0) 
-				|| this.procesador.getId().equals(1)
-				|| this.procesador.getId().equals(2)
-				|| this.procesador.getId().equals(4)
-				|| this.procesador.getId().equals(6)
-				|| this.procesador.getId().equals(7))) {
-			puntosAptitud -= 500;
-		}
-		
-		//El procesador debe ser 4ta, 6ta o 7ma Gen.
-		if(!(this.procesador.getGeneracion().equals(4) 
-				|| this.procesador.getId().equals(6)
-				|| this.procesador.getId().equals(7))) {
-			puntosAptitud -= 500;
-		}
-		
-		//La RAM debe ser DDR3 o DDR4.
-		if(!(this.ram.getTecnologia().equals("DDR3") 
-				|| this.ram.getTecnologia().equals("DDR4"))) {
-			puntosAptitud -= 500;
-		}
-		
-		//La RAM debe ser superior a 2 GB.
-		if(this.ram.getCapacidad() <= 2) {
-			puntosAptitud -= 500;
-		}
-		
-		//El Disco Rígido debe ser superior a 320 GB.
-		if(this.disco.getCapacidad() <= 320) {
-			puntosAptitud -= 500;
-		}
-		
-		//El SO debe ser Windows 10 Home Edition.
-		if(!this.so.getModelo().equals("WINDOWS_10_HOME_EDITION")) {
-			puntosAptitud -= 500;
-		}
-		
-		//Si la suma total del precio de todas las prestaciones es mayor a 18.500$ resta 500 puntos.
-		if(this.procesador.getPrecio() != null 
-			&& this.motherboard.getPrecio() != null
-			&& this.ram.getPrecio() != null
-			&& this.disco.getPrecio() != null
-			&& this.so.getPrecio() != null) {
-			
-			Integer precioTotal = this.procesador.getPrecio() + this.motherboard.getPrecio() + this.ram.getPrecio() + this.disco.getPrecio() + this.so.getPrecio();
-			
-			if(precioTotal > 18500) {
-				puntosAptitud -= 500;
-			}
+		//Si la RAM es superior a 8 GB, pero el SO no tiene arquitectura x64, restar 50 puntos.
+		if(this.ram.getCapacidad() > 8 && !this.so.getArquitectura().equals("x64")) {
+			puntosAptitud -= 60;
 		}
 		
 		return puntosAptitud;
@@ -251,6 +191,20 @@ public class Hardware extends Individuo {
 		// El SO debe ser Windows 10 Home Edition.
 		if(!this.so.getModelo().equals("WINDOWS_10_HOME_EDITION")) {
 			combinacionInvalida = true;
+		}
+		
+		//Si la suma total del precio de todas las prestaciones es mayor a 18.500$ resta 500 puntos.
+		if(this.procesador.getPrecio() != null 
+			&& this.motherboard.getPrecio() != null
+			&& this.ram.getPrecio() != null
+			&& this.disco.getPrecio() != null
+			&& this.so.getPrecio() != null) {
+			
+			Integer precioTotal = this.procesador.getPrecio() + this.motherboard.getPrecio() + this.ram.getPrecio() + this.disco.getPrecio() + this.so.getPrecio();
+			
+			if(precioTotal > 18500) {
+				combinacionInvalida = true;
+			}
 		}
 		
 		if(combinacionInvalida) {

@@ -5,7 +5,10 @@ import java.util.logging.Logger;
 import main.java.ar.edu.utn.frba.ia.ag.AlgoritmoGenetico;
 import main.java.ar.edu.utn.frba.ia.ag.ConfiguracionDefault;
 import main.java.ar.edu.utn.frba.ia.ag.Individuo;
+import main.java.ar.edu.utn.frba.ia.ag.cruzamiento.Simple;
+import main.java.ar.edu.utn.frba.ia.ag.mutacion.MutacionSimple;
 import main.java.ar.edu.utn.frba.ia.ag.paro.CantidadDeCiclos;
+import main.java.ar.edu.utn.frba.ia.ag.seleccion.Ranking;
 
 public class Main {
 
@@ -13,9 +16,12 @@ public class Main {
 		
         ConfiguracionDefault c = new ConfiguracionDefault();
 
-//        c.setCriterioDeParo(new AptitudMinima(100));
-        c.setCriterioDeParo(new CantidadDeCiclos(new Long(99)));
-
+        c.setPoblacionInicial(999);
+        c.setCriterioDeParo(new CantidadDeCiclos(499L));
+        c.setMetodoDeSeleccion(new Ranking(50));
+        c.setCruzamiento(new Simple());
+        c.setMutacion(new MutacionSimple(0.2));
+        
         AlgoritmoGenetico ag = new AlgoritmoGenetico(c, Hardware.class);
 
         Individuo individuo = ag.ejecutar();
