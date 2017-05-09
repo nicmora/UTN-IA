@@ -2,7 +2,7 @@ package main.java.ar.edu.utn.frba.ia.ag.hardwareselector;
 
 public class Disco extends Componente {
 
-	private String teconologia;
+	private String tecnologia;
 	private Integer capacidad; // Medido en : GB
 
 	public Disco(Integer i) {
@@ -12,7 +12,7 @@ public class Disco extends Componente {
 				this.setModelo("WD_CAVIAR_BLACK");
 				this.setPrecio(1800);
 				this.capacidad = 1024;
-				this.teconologia = "HDD";
+				this.tecnologia = "HDD";
 				break;
 			}
 			case 1: {
@@ -20,7 +20,7 @@ public class Disco extends Componente {
 				this.setModelo("WD_CAVIAR_BLUE");
 				this.setPrecio(1000);
 				this.capacidad = 500;
-				this.teconologia = "HDD";
+				this.tecnologia = "HDD";
 				break;
 			}
 			case 2: {
@@ -28,7 +28,7 @@ public class Disco extends Componente {
 				this.setModelo("SSD_WD_GREEN");
 				this.setPrecio(3500);
 				this.capacidad = 500;
-				this.teconologia = "SSD";
+				this.tecnologia = "SSD";
 				break;
 			}
 			case 3: {
@@ -36,7 +36,7 @@ public class Disco extends Componente {
 				this.setModelo("SSD_WD_BLACK");
 				this.setPrecio(4200);
 				this.capacidad = 1024;
-				this.teconologia = "SSD";
+				this.tecnologia = "SSD";
 				break;
 			}
 			case 4: {
@@ -44,7 +44,7 @@ public class Disco extends Componente {
 				this.setModelo("TOSHIBA");
 				this.setPrecio(700);
 				this.capacidad = 250;
-				this.teconologia = "HDD";
+				this.tecnologia = "HDD";
 				break;
 			}
 			case 5: {
@@ -52,7 +52,7 @@ public class Disco extends Componente {
 				this.setModelo("TOSHIBA");
 				this.setPrecio(1100);
 				this.capacidad = 320;
-				this.teconologia = "HDD";
+				this.tecnologia = "HDD";
 				break;
 			}
 			case 6: {
@@ -60,7 +60,7 @@ public class Disco extends Componente {
 				this.setModelo("INVALIDO");
 				this.setPrecio(null);
 				this.capacidad = 0;
-				this.teconologia = "";
+				this.tecnologia = "";
 				break;
 			}
 			case 7: {
@@ -68,7 +68,7 @@ public class Disco extends Componente {
 				this.setModelo("INVALIDO");
 				this.setPrecio(null);
 				this.capacidad = 0;
-				this.teconologia = "";
+				this.tecnologia = "";
 				break;
 			}
 		}
@@ -82,12 +82,12 @@ public class Disco extends Componente {
 		this.capacidad = capacidad;
 	}
 
-	public String getTeconologia() {
-		return teconologia;
+	public String getTecnologia() {
+		return tecnologia;
 	}
 
-	public void setTeconologia(String teconologia) {
-		this.teconologia = teconologia;
+	public void setTecnologia(String tecnologia) {
+		this.tecnologia = tecnologia;
 	}
 
 }

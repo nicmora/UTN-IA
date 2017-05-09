@@ -119,7 +119,7 @@ public class Hardware extends Individuo {
 		}
 		
 		//Si el Disco Rígido es SSD, sumar 15 puntos.
-		if(this.disco.getTeconologia().equals("SSD")) {
+		if(this.disco.getTecnologia().equals("SSD")) {
 			puntosAptitud += 15;
 		}
 		
@@ -231,15 +231,16 @@ public class Hardware extends Individuo {
 	
     @Override
     public String toString() {
-    	
-    	StringBuilder strBuilder = new StringBuilder();
-    	strBuilder.append("Procesador: ").append(this.procesador.getModelo()).append("\n");
-    	strBuilder.append("Motherboard: ").append(this.motherboard.getModelo()).append("\n");
-    	strBuilder.append("RAM: ").append(this.ram.getModelo()).append("\n");
-    	strBuilder.append("Disco: ").append(this.disco.getModelo()).append("\n");
-    	strBuilder.append("SO: ").append(this.so.getModelo()).append("\n");
-    	
-    	return strBuilder.toString();
+      
+       StringBuilder strBuilder = new StringBuilder();
+       strBuilder.append("\n");
+       strBuilder.append("Procesador: ").append(this.procesador.getModelo()).append("\n");
+       strBuilder.append("Motherboard: ").append(this.motherboard.getModelo()).append("\n");
+       strBuilder.append("RAM: ").append(this.ram.getModelo()).append(" ").append(this.ram.getCapacidad()).append("GB").append(" ").append(this.ram.getTecnologia()).append("\n");
+       strBuilder.append("Disco: ").append(this.disco.getModelo()).append(" ").append(this.disco.getCapacidad()).append("GB").append(" ").append(this.disco.getTecnologia()).append("\n");
+       strBuilder.append("SO: ").append(this.so.getModelo()).append(" ").append(this.so.getArquitectura()).append("\n");
+      
+       return strBuilder.toString();
     }
 	
 }
