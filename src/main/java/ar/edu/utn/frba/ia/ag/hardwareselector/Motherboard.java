@@ -10,64 +10,64 @@ public class Motherboard extends Componente {
 			case 0: {
 				this.setId(0);
 				this.setModelo("ASUS_H97-PRO");
-				this.setSocketProcesador("LGA_1150");
-				this.setSocketMemoria("DDR3");
+				this.socketProcesador = "LGA_1150";
+				this.socketMemoria = "DDR3";
 				this.setPrecio(2200);
 				break;
 			}
 			case 1: {
 				this.setId(1);
 				this.setModelo("ASUS_B150-PLUS");
-				this.setSocketProcesador("LGA_1151");
-				this.setSocketMemoria("DDR4");
+				this.socketProcesador = "LGA_1151";
+				this.socketMemoria = "DDR4";
 				this.setPrecio(2500);
 				break;
 			}
 			case 2: {
 				this.setId(2);
 				this.setModelo("ASUS_H170-PRO");
-				this.setSocketProcesador("LGA_1151");
-				this.setSocketMemoria("DDR4");
+				this.socketProcesador = "LGA_1151";
+				this.socketMemoria = "DDR4";
 				this.setPrecio(3100);
 				break;
 			}
 			case 3: {
 				this.setId(3);
 				this.setModelo("ASUS_Z170-DELUXE");
-				this.setSocketProcesador("LGA_1151");
-				this.setSocketMemoria("DDR4");
+				this.socketProcesador = "LGA_1151";
+				this.socketMemoria = "DDR4";
 				this.setPrecio(7700);
 				break;
 			}
 			case 4: {
 				this.setId(4);
 				this.setModelo("ASUS_MAXIMUS VII FORMULA");
-				this.setSocketProcesador("LGA_1150");
-				this.setSocketMemoria("DDR3");
+				this.socketProcesador = "LGA_1150";
+				this.socketMemoria = "DDR3";
 				this.setPrecio(9000);
 				break;
 			}
 			case 5: {
 				this.setId(5);
 				this.setModelo("H87M-PLUS");
-				this.setSocketProcesador("LGA_1150");
-				this.setSocketMemoria("DDR2");
+				this.socketProcesador = "LGA_1150";
+				this.socketMemoria = "DDR2";
 				this.setPrecio(1800);
 				break;
 			}
 			case 6: {
 				this.setId(6);
 				this.setModelo("INVALIDO");
-				this.setSocketProcesador("");
-				this.setSocketMemoria("");
+				this.socketProcesador = "";
+				this.socketMemoria = "";
 				this.setPrecio(0);
 				break;
 			}
 			case 7: {
 				this.setId(7);
 				this.setModelo("INVALIDO");
-				this.setSocketProcesador("");
-				this.setSocketMemoria("");
+				this.socketProcesador = "";
+				this.socketMemoria = "";
 				this.setPrecio(0);
 				break;
 			}

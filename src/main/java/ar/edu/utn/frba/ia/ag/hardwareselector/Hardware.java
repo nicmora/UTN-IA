@@ -88,32 +88,32 @@ public class Hardware extends Individuo {
 
 		double puntosAptitud = 0;
 		
-		//Si el procesador es Core i7, sumar 100 puntos.
+		//Si el procesador es Core i7, sumar 1000 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I7")) {
 			puntosAptitud += 1000;
 		}
 		
-		//Si el procesador es Core i5, sumar 60 puntos.
+		//Si el procesador es Core i5, sumar 500 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I5")) {
 			puntosAptitud += 500;
 		}
 		
-		//Si el procesador es 7ma Gen, sumar 40 puntos.
+		//Si el procesador es 7ma Gen, sumar 100 puntos.
 		if(this.procesador.getGeneracion().equals(7)) {
 			puntosAptitud += 100;
 		}
 		
-		//Si el procesador es 6ta Gen, sumar 25 puntos.
+		//Si el procesador es 6ta Gen, sumar 50 puntos.
 		if(this.procesador.getGeneracion().equals(6)) {
 			puntosAptitud += 50;
 		}
 		
-		//Si la RAM es DDR4, sumar 20 puntos.
+		//Si la RAM es DDR4, sumar 800 puntos.
 		if(this.ram.getTecnologia().equals("DDR4")) {
 			puntosAptitud += 800;
 		}
 		
-		//Si el Disco Rígido es SSD, sumar 15 puntos.
+		//Si el Disco Rígido es SSD, sumar 100 puntos.
 		if(this.disco.getTecnologia().equals("SSD")) {
 			puntosAptitud += 100;
 		}
@@ -125,9 +125,9 @@ public class Hardware extends Individuo {
 
 		double puntosAptitud = 0;
 		
-		//Si la RAM es superior a 8 GB, pero el SO no tiene arquitectura x64, restar 50 puntos.
+		//Si la RAM es superior a 8 GB, pero el SO no tiene arquitectura x64, restar 100 puntos.
 		if(this.ram.getCapacidad() > 8 && !this.so.getArquitectura().equals("x64")) {
-			puntosAptitud -= 60;
+			puntosAptitud -= 100;
 		}
 		
 		return puntosAptitud;
@@ -138,12 +138,12 @@ public class Hardware extends Individuo {
 		boolean combinacionInvalida = false;
 		double puntosAptitud = 0;
 		
-		// Cualquier Motherboard que posea una característica marcada como inválida (con valor 110 o 111), resta 500 puntos.	
+		// Cualquier Motherboard que posea una característica marcada como inválida, resta 500 puntos.	
 		if (this.getMotherboard().getModelo().equals("INVALIDO")) {
 			combinacionInvalida = true;
 		}
 		
-		// Cualquier Disco que posea una característica marcada como inválida (con valor 110 o 111), resta 500 puntos.
+		// Cualquier Disco que posea una característica marcada como inválida, resta 500 puntos.
 		if(this.disco.getModelo().equals("INVALIDO")) {
 			combinacionInvalida = true;
 		}

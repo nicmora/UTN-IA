@@ -14,8 +14,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		//--- Configuracion ---//
         ConfiguracionDefault c = new ConfiguracionDefault();
-
         c.setPoblacionInicial(9999);
         c.setCriterioDeParo(new AptitudMinima(700));
         c.setMetodoDeSeleccion(new Torneo());
@@ -28,6 +28,7 @@ public class Main {
                 
         Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).info("Individuo final: " + individuo.toString());
 
+        return;
 	}
 
 }

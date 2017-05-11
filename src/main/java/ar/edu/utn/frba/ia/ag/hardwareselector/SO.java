@@ -10,28 +10,28 @@ public class SO extends Componente {
 				this.setId(0);
 				this.setModelo("WINDOWS_10_HOME_EDITION");
 				this.setPrecio(1800);
-				this.setArquitectura("x86");
+				this.arquitectura = "x86";
 				break;
 			}
 			case 1: {
 				this.setId(1);
 				this.setModelo("WINDOWS_10_HOME_EDITION");
 				this.setPrecio(2400);
-				this.setArquitectura("x64");
+				this.arquitectura = "x64";
 				break;
 			}
 			case 2: {
 				this.setId(2);
 				this.setModelo("WINDOWS_7_ENTERPRISE_EDITION");
 				this.setPrecio(1100);
-				this.setArquitectura("x86");
+				this.arquitectura = "x86";
 				break;
 			}
 			case 3: {
 				this.setId(3);
 				this.setModelo("WINDOWS_7_ENTERPRISE_EDITION");
 				this.setPrecio(1600);
-				this.setArquitectura("x64");
+				this.arquitectura = "x64";
 				break;
 			}
 		}
