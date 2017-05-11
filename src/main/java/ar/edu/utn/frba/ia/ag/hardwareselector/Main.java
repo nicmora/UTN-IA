@@ -17,7 +17,7 @@ public class Main {
         ConfiguracionDefault c = new ConfiguracionDefault();
 
         c.setPoblacionInicial(9999);
-        c.setCriterioDeParo(new AptitudMinima(400));
+        c.setCriterioDeParo(new AptitudMinima(700));
         c.setMetodoDeSeleccion(new Torneo());
         c.setCruzamiento(new Simple());
         c.setMutacion(new MutacionSimple(0.2));

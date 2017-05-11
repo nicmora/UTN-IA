@@ -90,32 +90,32 @@ public class Hardware extends Individuo {
 		
 		//Si el procesador es Core i7, sumar 100 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I7")) {
-			puntosAptitud += 590;
+			puntosAptitud += 1000;
 		}
 		
 		//Si el procesador es Core i5, sumar 60 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I5")) {
-			puntosAptitud += 510;
+			puntosAptitud += 500;
 		}
 		
 		//Si el procesador es 7ma Gen, sumar 40 puntos.
 		if(this.procesador.getGeneracion().equals(7)) {
-			puntosAptitud += 490;
+			puntosAptitud += 100;
 		}
 		
 		//Si el procesador es 6ta Gen, sumar 25 puntos.
 		if(this.procesador.getGeneracion().equals(6)) {
-			puntosAptitud += 410;
+			puntosAptitud += 50;
 		}
 		
 		//Si la RAM es DDR4, sumar 20 puntos.
 		if(this.ram.getTecnologia().equals("DDR4")) {
-			puntosAptitud += 390;
+			puntosAptitud += 800;
 		}
 		
 		//Si el Disco Rígido es SSD, sumar 15 puntos.
 		if(this.disco.getTecnologia().equals("SSD")) {
-			puntosAptitud += 290;
+			puntosAptitud += 100;
 		}
 		
 		return puntosAptitud;
@@ -219,6 +219,7 @@ public class Hardware extends Individuo {
       
        StringBuilder strBuilder = new StringBuilder();
        strBuilder.append("\n");
+       strBuilder.append("Cromosoma = ").append(this.getCromosoma()).append("\n");
        strBuilder.append("Procesador: ").append(this.procesador.getModelo()).append("\n");
        strBuilder.append("Motherboard: ").append(this.motherboard.getModelo()).append("\n");
        strBuilder.append("RAM: ").append(this.ram.getModelo()).append(" ").append(this.ram.getCapacidad()).append("GB").append(" ").append(this.ram.getFrecuencia()).append("MHZ").append(" ").append(this.ram.getTecnologia()).append("\n");
@@ -227,6 +228,20 @@ public class Hardware extends Individuo {
        strBuilder.append("Precio = ").append(this.procesador.getPrecio() + this.motherboard.getPrecio() + this.ram.getPrecio() + this.disco.getPrecio() + this.so.getPrecio()).append("\n");
       
        return strBuilder.toString();
+    }
+    
+    public String getCromosoma() {
+    	
+        StringBuilder strBuilder = new StringBuilder();
+        strBuilder.append("[")
+        			.append(this.procesador.getCodificacionId()).append("|")
+        			.append(this.motherboard.getCodificacionId()).append("|")
+        			.append(this.ram.getCodificacionId()).append("|")
+        			.append(this.disco.getCodificacionId()).append("|")
+        			.append(this.so.getCodificacionId())
+        			.append("]");
+        
+        return strBuilder.toString();
     }
 	
 }
