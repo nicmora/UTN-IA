@@ -78,7 +78,6 @@ public class Hardware extends Individuo {
 		double total = 0;
 		
 		total += this.verificarCondicionesDeseables();
-		total += this.verificarRestriccionesVioladas();
 		total += this.verificarCombinacionesInvalidas();
 		
 		return total;
@@ -88,112 +87,106 @@ public class Hardware extends Individuo {
 
 		double puntosAptitud = 0;
 		
-		//Si el procesador es Core i7, sumar 1000 puntos.
+		//Si el procesador es Core i7, sumar 10 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I7")) {
-			puntosAptitud += 1000;
+			puntosAptitud += 10;
 		}
 		
-		//Si el procesador es Core i5, sumar 500 puntos.
+		//Si el procesador es Core i5, sumar 3 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I5")) {
-			puntosAptitud += 500;
+			puntosAptitud += 3;
 		}
 		
-		//Si el procesador es 7ma Gen, sumar 100 puntos.
+		//Si el procesador es Core i3, sumar 1 puntos.
+		if(this.procesador.getModelo().contains("INTEL_CORE_I3")) {
+			puntosAptitud += 1;
+		}
+		
+		//Si el procesador es 7ma Gen, sumar 2 puntos.
 		if(this.procesador.getGeneracion().equals(7)) {
-			puntosAptitud += 100;
+			puntosAptitud += 2;
 		}
 		
-		//Si el procesador es 6ta Gen, sumar 50 puntos.
+		//Si el procesador es 6ta Gen, sumar 1 puntos.
 		if(this.procesador.getGeneracion().equals(6)) {
-			puntosAptitud += 50;
+			puntosAptitud += 1;
 		}
 		
-		//Si la RAM es DDR4, sumar 800 puntos.
-		if(this.ram.getTecnologia().equals("DDR4")) {
-			puntosAptitud += 800;
+		//Si la RAM es DDR4, sumar 8 puntos.
+		if(this.ram.getSocket().equals("DDR4")) {
+			puntosAptitud += 8;
 		}
 		
-		//Si el Disco Rígido es SSD, sumar 100 puntos.
+		//Si el Disco tiene una Capacidad superior a 320 GB, sumar 6 puntos.
+		if(this.ram.getCapacidad() > 8) {
+			puntosAptitud += 6;
+		}
+		
+		//Si la RAM es superior a 4 GB y el SO tiene arquitectura x64, sumar 5 puntos.
+		if(this.ram.getCapacidad() > 4 && this.so.getArquitectura().equals("x64")) {
+			puntosAptitud += 5;
+		}
+		
+		//Si el Disco tiene una Capacidad superior a 320 GB, sumar 6 puntos.
+		if(this.disco.getCapacidad() > 320) {
+			puntosAptitud += 6;
+		}
+		
+		//Si el Disco es SSD, sumar 3 puntos.
 		if(this.disco.getTecnologia().equals("SSD")) {
-			puntosAptitud += 100;
+			puntosAptitud += 3;
+		}
+		
+		//Si el Sistema Operativo es Windows 10 Home Edition, sumar 1 puntos.
+		if(this.so.getModelo().equals("WINDOWS_10_HOME_EDITION")) {
+			puntosAptitud += 1;
 		}
 		
 		return puntosAptitud;
 	}
+
 	
-	private double verificarRestriccionesVioladas() {
-
-		double puntosAptitud = 0;
-		
-		//Si la RAM es superior a 8 GB, pero el SO no tiene arquitectura x64, restar 100 puntos.
-		if(this.ram.getCapacidad() > 8 && !this.so.getArquitectura().equals("x64")) {
-			puntosAptitud -= 100;
-		}
-		
-		return puntosAptitud;
-	}
-
 	private double verificarCombinacionesInvalidas() {
 
 		boolean combinacionInvalida = false;
 		double puntosAptitud = 0;
 		
-		// Cualquier Motherboard que posea una característica marcada como inválida, resta 500 puntos.	
+		// Cualquier Procesador que posea una característica marcada como inválida.	
+		if (this.getProcesador().getModelo().equals("INVALIDO")) {
+			combinacionInvalida = true;
+		}
+		
+		// Cualquier Motherboard que posea una característica marcada como inválida.	
 		if (this.getMotherboard().getModelo().equals("INVALIDO")) {
 			combinacionInvalida = true;
 		}
 		
-		// Cualquier Disco que posea una característica marcada como inválida, resta 500 puntos.
+		// Cualquier Disco que posea una característica marcada como inválida.
 		if(this.disco.getModelo().equals("INVALIDO")) {
 			combinacionInvalida = true;
 		}
 		
-		// Si el procesador es 4ta Gen y el Motherboard no tiene Socket 1150, resta 500 puntos.
+		// Si el procesador es 4ta Gen y el Motherboard no tiene Socket 1150.
 		if(this.procesador.getGeneracion() == 4 && !this.motherboard.getSocketProcesador().equals("LGA_1150")) {
 			combinacionInvalida = true;
 		}
 		
-		// Si el procesador es 6ta Gen o 7ma Gen y el Motherboard no tiene Socket 1151, resta 500 puntos.
+		// Si el procesador es 6ta Gen o 7ma Gen y el Motherboard no tiene Socket 1151.
 		if((this.procesador.getGeneracion() == 6 || this.procesador.getGeneracion() == 7) && !this.motherboard.getSocketProcesador().equals("LGA_1151")) {
 			combinacionInvalida = true;
 		}
 		
-		// Si la RAM es DDR4 y el Motherboard no soporta la tecnología DDR4, resta 500 puntos.
-		if(this.ram.getTecnologia().equals("DDR4") && !this.motherboard.getSocketMemoria().equals("DDR4")) {
-			combinacionInvalida = true;
-		}
-			
-		// El procesador debe ser Intel Core i3 o i5 o i7.
-		if(!this.procesador.getModelo().contains("INTEL_CORE_I")) {
+		// Si la RAM es DDR4 y el Motherboard no soporta la tecnología DDR4.
+		if(this.ram.getSocket().equals("DDR4") && !this.motherboard.getSocketMemoria().equals("DDR4")) {
 			combinacionInvalida = true;
 		}
 		
-		// El procesador debe ser 4ta, 6ta o 7ma Gen.
-		if(!(this.procesador.getGeneracion() == 4 || this.procesador.getGeneracion() == 6 || this.procesador.getGeneracion() == 7)) {
-			combinacionInvalida = true;
-		}
-				
-		// La RAM debe ser DDR3 o DDR4.
-		if(!(this.ram.getTecnologia().equals("DDR3") || this.ram.getTecnologia().equals("DDR4"))) {
+		// Si la RAM es DDR3 y el Motherboard no soporta la tecnología DDR3.
+		if(this.ram.getSocket().equals("DDR3") && !this.motherboard.getSocketMemoria().equals("DDR3")) {
 			combinacionInvalida = true;
 		}
 			
-		// La RAM debe ser superior a 2 GB.
-		if(this.ram.getCapacidad() <= 2) {
-			combinacionInvalida = true;
-		}
-			
-		// El Disco Rígido debe ser superior a 320 GB.
-		if(this.disco.getCapacidad() <= 320) {
-			combinacionInvalida = true;
-		}
-		
-		// El SO debe ser Windows 10 Home Edition.
-		if(!this.so.getModelo().equals("WINDOWS_10_HOME_EDITION")) {
-			combinacionInvalida = true;
-		}
-		
-		//Si la suma total del precio de todas las prestaciones es mayor a 18.500$ resta 500 puntos.
+		//Si la suma total del precio de todas las prestaciones es mayor a $18.500.
 		if(this.procesador.getPrecio() != null 
 			&& this.motherboard.getPrecio() != null
 			&& this.ram.getPrecio() != null
@@ -208,7 +201,7 @@ public class Hardware extends Individuo {
 		}
 		
 		if(combinacionInvalida) {
-			puntosAptitud -= 5000;			
+			puntosAptitud -= 100;			
 		}
 		
 		return puntosAptitud;
@@ -222,7 +215,7 @@ public class Hardware extends Individuo {
        strBuilder.append("Cromosoma = ").append(this.getCromosoma()).append("\n");
        strBuilder.append("Procesador: ").append(this.procesador.getModelo()).append("\n");
        strBuilder.append("Motherboard: ").append(this.motherboard.getModelo()).append("\n");
-       strBuilder.append("RAM: ").append(this.ram.getModelo()).append(" ").append(this.ram.getCapacidad()).append("GB").append(" ").append(this.ram.getFrecuencia()).append("MHZ").append(" ").append(this.ram.getTecnologia()).append("\n");
+       strBuilder.append("RAM: ").append(this.ram.getModelo()).append(" ").append(this.ram.getCapacidad()).append("GB").append(" ").append(this.ram.getSocket()).append("\n");
        strBuilder.append("Disco: ").append(this.disco.getModelo()).append(" ").append(this.disco.getCapacidad()).append("GB").append(" ").append(this.disco.getTecnologia()).append("\n");
        strBuilder.append("SO: ").append(this.so.getModelo()).append(" ").append(this.so.getArquitectura()).append("\n");
        strBuilder.append("Precio = ").append(this.procesador.getPrecio() + this.motherboard.getPrecio() + this.ram.getPrecio() + this.disco.getPrecio() + this.so.getPrecio()).append("\n");

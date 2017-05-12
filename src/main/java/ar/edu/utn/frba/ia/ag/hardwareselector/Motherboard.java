@@ -9,50 +9,50 @@ public class Motherboard extends Componente {
 		switch (i) {
 			case 0: {
 				this.setId(0);
-				this.setModelo("ASUS_H97-PRO");
+				this.setModelo("ASUS_H97_PRO");
 				this.socketProcesador = "LGA_1150";
 				this.socketMemoria = "DDR3";
-				this.setPrecio(2200);
+				this.setPrecio(2700);
 				break;
 			}
 			case 1: {
 				this.setId(1);
-				this.setModelo("ASUS_B150-PLUS");
-				this.socketProcesador = "LGA_1151";
-				this.socketMemoria = "DDR4";
-				this.setPrecio(2500);
+				this.setModelo("ASUS_Z97_PRO");
+				this.socketProcesador = "LGA_1150";
+				this.socketMemoria = "DDR3";
+				this.setPrecio(3200);
 				break;
 			}
 			case 2: {
 				this.setId(2);
-				this.setModelo("ASUS_H170-PRO");
-				this.socketProcesador = "LGA_1151";
-				this.socketMemoria = "DDR4";
-				this.setPrecio(3100);
+				this.setModelo("ASUS_CROSSHAIR_V_FORMULA-Z");
+				this.socketProcesador = "LGA_1150";
+				this.socketMemoria = "DDR3";
+				this.setPrecio(4800);
 				break;
 			}
 			case 3: {
 				this.setId(3);
-				this.setModelo("ASUS_Z170-DELUXE");
+				this.setModelo("ASUS_H170_PRO");
 				this.socketProcesador = "LGA_1151";
 				this.socketMemoria = "DDR4";
-				this.setPrecio(7700);
+				this.setPrecio(3500);
 				break;
 			}
 			case 4: {
 				this.setId(4);
-				this.setModelo("ASUS_MAXIMUS VII FORMULA");
-				this.socketProcesador = "LGA_1150";
-				this.socketMemoria = "DDR3";
-				this.setPrecio(9000);
+				this.setModelo("ASUS_Z170_PRO");
+				this.socketProcesador = "LGA_1151";
+				this.socketMemoria = "DDR4";
+				this.setPrecio(4500);
 				break;
 			}
 			case 5: {
 				this.setId(5);
-				this.setModelo("H87M-PLUS");
-				this.socketProcesador = "LGA_1150";
-				this.socketMemoria = "DDR2";
-				this.setPrecio(1800);
+				this.setModelo("ASUS_ROG_MAXIMUS_IX_HERO");
+				this.socketProcesador = "LGA_1151";
+				this.socketMemoria = "DDR4";
+				this.setPrecio(5700);
 				break;
 			}
 			case 6: {

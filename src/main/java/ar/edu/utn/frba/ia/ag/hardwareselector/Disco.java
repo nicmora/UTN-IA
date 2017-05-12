@@ -9,66 +9,66 @@ public class Disco extends Componente {
 		switch (i) {
 			case 0: {
 				this.setId(0);
-				this.setModelo("WD_CAVIAR_BLACK");
-				this.setPrecio(1800);
-				this.capacidad = 1024;
+				this.setModelo("TOSHIBA");
+				this.capacidad = 250;
 				this.tecnologia = "HDD";
+				this.setPrecio(500);
 				break;
 			}
 			case 1: {
 				this.setId(1);
-				this.setModelo("WD_CAVIAR_BLUE");
-				this.setPrecio(1000);
-				this.capacidad = 500;
+				this.setModelo("TOSHIBA");
+				this.capacidad = 320;
 				this.tecnologia = "HDD";
+				this.setPrecio(800);
 				break;
 			}
 			case 2: {
 				this.setId(2);
-				this.setModelo("SSD_WD_GREEN");
-				this.setPrecio(3500);
+				this.setModelo("WD_CAVIAR_BLUE");
 				this.capacidad = 500;
-				this.tecnologia = "SSD";
+				this.tecnologia = "HDD";
+				this.setPrecio(1200);
 				break;
 			}
 			case 3: {
 				this.setId(3);
-				this.setModelo("SSD_WD_BLACK");
-				this.setPrecio(4200);
+				this.setModelo("WD_CAVIAR_BLACK");
 				this.capacidad = 1024;
-				this.tecnologia = "SSD";
+				this.tecnologia = "HDD";
+				this.setPrecio(2000);
 				break;
 			}
 			case 4: {
 				this.setId(4);
-				this.setModelo("TOSHIBA");
-				this.setPrecio(700);
-				this.capacidad = 250;
-				this.tecnologia = "HDD";
+				this.setModelo("SSD_WD_GREEN");
+				this.capacidad = 500;
+				this.tecnologia = "SSD";
+				this.setPrecio(3500);
 				break;
 			}
 			case 5: {
 				this.setId(5);
-				this.setModelo("TOSHIBA");
-				this.setPrecio(1100);
-				this.capacidad = 320;
-				this.tecnologia = "HDD";
+				this.setModelo("SSD_WD_BLACK");
+				this.capacidad = 1024;
+				this.tecnologia = "SSD";
+				this.setPrecio(4200);
 				break;
 			}
 			case 6: {
 				this.setId(6);
 				this.setModelo("INVALIDO");
-				this.setPrecio(0);
 				this.capacidad = 0;
 				this.tecnologia = "";
+				this.setPrecio(0);
 				break;
 			}
 			case 7: {
 				this.setId(7);
 				this.setModelo("INVALIDO");
-				this.setPrecio(0);
 				this.capacidad = 0;
 				this.tecnologia = "";
+				this.setPrecio(0);
 				break;
 			}
 		}

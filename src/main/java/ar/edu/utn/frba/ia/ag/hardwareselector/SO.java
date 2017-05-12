@@ -9,7 +9,7 @@ public class SO extends Componente {
 			case 0: {
 				this.setId(0);
 				this.setModelo("WINDOWS_10_HOME_EDITION");
-				this.setPrecio(1800);
+				this.setPrecio(1500);
 				this.arquitectura = "x86";
 				break;
 			}
@@ -30,7 +30,7 @@ public class SO extends Componente {
 			case 3: {
 				this.setId(3);
 				this.setModelo("WINDOWS_7_ENTERPRISE_EDITION");
-				this.setPrecio(1600);
+				this.setPrecio(2000);
 				this.arquitectura = "x64";
 				break;
 			}
