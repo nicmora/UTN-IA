@@ -201,7 +201,7 @@ public class Hardware extends Individuo {
 		}
 		
 		if(combinacionInvalida) {
-			puntosAptitud -= 100;			
+			puntosAptitud -= 50;			
 		}
 		
 		return puntosAptitud;
@@ -213,6 +213,7 @@ public class Hardware extends Individuo {
        StringBuilder strBuilder = new StringBuilder();
        strBuilder.append("\n");
        strBuilder.append("Cromosoma = ").append(this.getCromosoma()).append("\n");
+       strBuilder.append("Aptitud = ").append(this.aptitud()).append("\n");
        strBuilder.append("Procesador: ").append(this.procesador.getModelo()).append("\n");
        strBuilder.append("Motherboard: ").append(this.motherboard.getModelo()).append("\n");
        strBuilder.append("RAM: ").append(this.ram.getModelo()).append(" ").append(this.ram.getCapacidad()).append("GB").append(" ").append(this.ram.getSocket()).append("\n");
