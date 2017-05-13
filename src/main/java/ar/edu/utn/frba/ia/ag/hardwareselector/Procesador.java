@@ -12,7 +12,7 @@ public class Procesador extends Componente {
 				this.setModelo("INTEL_CORE_I5_4690");
 				this.generacion = 4;
 				this.socket = "LGA_1150";
-				this.setPrecio(4500);
+				this.setPrecio(4300);
 				break;
 			}
 			case 1: {
@@ -20,7 +20,7 @@ public class Procesador extends Componente {
 				this.setModelo("INTEL_CORE_I7_4790");
 				this.generacion = 4;
 				this.socket = "LGA_1150";
-				this.setPrecio(6500);
+				this.setPrecio(5500);
 				break;
 			}
 			case 2: {
@@ -36,7 +36,7 @@ public class Procesador extends Componente {
 				this.setModelo("INTEL_CORE_I7-6700");
 				this.generacion = 6;
 				this.socket = "LGA_1151";
-				this.setPrecio(7500);
+				this.setPrecio(5700);
 				break;
 			}
 			case 4: {
@@ -49,18 +49,18 @@ public class Procesador extends Componente {
 			}
 			case 5: {
 				this.setId(5);
-				this.setModelo("INTEL_CORE_I5-7600_PROCESSOR");
+				this.setModelo("INTEL_CORE_I5-7600");
 				this.generacion = 7;
 				this.socket = "LGA_1151";
-				this.setPrecio(5500);
+				this.setPrecio(4500);
 				break;
 			}
 			case 6: {
 				this.setId(6);
-				this.setModelo("INTEL_CORE_I7-7700_PROCESSOR");
+				this.setModelo("INTEL_CORE_I7-7700");
 				this.generacion = 7;
 				this.socket = "LGA_1151";
-				this.setPrecio(8500);
+				this.setPrecio(6000);
 				break;
 			}
 			case 7: {

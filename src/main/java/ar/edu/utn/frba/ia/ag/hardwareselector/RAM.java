@@ -20,7 +20,7 @@ public class RAM extends Componente {
 				this.setModelo("KINGSTON_HYPERX_FURY");
 				this.capacidad = 8;
 				this.socket = "DDR4";
-				this.setPrecio(2200);
+				this.setPrecio(1200);
 				break;
 			}
 			case 2: {
@@ -28,7 +28,7 @@ public class RAM extends Componente {
 				this.setModelo("KINGSTON_HYPERX_FURY");
 				this.capacidad = 16;
 				this.socket = "DDR4";
-				this.setPrecio(3500);
+				this.setPrecio(2400);
 				break;
 			}
 			case 3: {
@@ -36,7 +36,7 @@ public class RAM extends Componente {
 				this.setModelo("CORSAIR_VENGEANCE_(2X16)");
 				this.capacidad = 32;
 				this.socket = "DDR4";
-				this.setPrecio(5200);
+				this.setPrecio(4800);
 				break;
 			}
 		}

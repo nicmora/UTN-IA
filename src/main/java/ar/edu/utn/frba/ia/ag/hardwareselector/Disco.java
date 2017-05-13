@@ -12,7 +12,7 @@ public class Disco extends Componente {
 				this.setModelo("TOSHIBA");
 				this.capacidad = 250;
 				this.tecnologia = "HDD";
-				this.setPrecio(500);
+				this.setPrecio(700);
 				break;
 			}
 			case 1: {
@@ -20,7 +20,7 @@ public class Disco extends Componente {
 				this.setModelo("TOSHIBA");
 				this.capacidad = 320;
 				this.tecnologia = "HDD";
-				this.setPrecio(800);
+				this.setPrecio(1000);
 				break;
 			}
 			case 2: {
@@ -28,7 +28,7 @@ public class Disco extends Componente {
 				this.setModelo("WD_CAVIAR_BLUE");
 				this.capacidad = 500;
 				this.tecnologia = "HDD";
-				this.setPrecio(1200);
+				this.setPrecio(1300);
 				break;
 			}
 			case 3: {
@@ -36,23 +36,23 @@ public class Disco extends Componente {
 				this.setModelo("WD_CAVIAR_BLACK");
 				this.capacidad = 1024;
 				this.tecnologia = "HDD";
-				this.setPrecio(2000);
+				this.setPrecio(1600);
 				break;
 			}
 			case 4: {
 				this.setId(4);
-				this.setModelo("SSD_WD_GREEN");
+				this.setModelo("SSD_WD_BLUE");
 				this.capacidad = 500;
 				this.tecnologia = "SSD";
-				this.setPrecio(3500);
+				this.setPrecio(2600);
 				break;
 			}
 			case 5: {
 				this.setId(5);
-				this.setModelo("SSD_WD_BLACK");
+				this.setModelo("SSD_WD_BLUE");
 				this.capacidad = 1024;
 				this.tecnologia = "SSD";
-				this.setPrecio(4200);
+				this.setPrecio(4900);
 				break;
 			}
 			case 6: {

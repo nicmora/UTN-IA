@@ -12,7 +12,7 @@ public class Motherboard extends Componente {
 				this.setModelo("ASUS_H97_PRO");
 				this.socketProcesador = "LGA_1150";
 				this.socketMemoria = "DDR3";
-				this.setPrecio(2700);
+				this.setPrecio(1700);
 				break;
 			}
 			case 1: {
@@ -20,7 +20,7 @@ public class Motherboard extends Componente {
 				this.setModelo("ASUS_Z97_PRO");
 				this.socketProcesador = "LGA_1150";
 				this.socketMemoria = "DDR3";
-				this.setPrecio(3200);
+				this.setPrecio(2700);
 				break;
 			}
 			case 2: {
@@ -28,7 +28,7 @@ public class Motherboard extends Componente {
 				this.setModelo("ASUS_CROSSHAIR_V_FORMULA-Z");
 				this.socketProcesador = "LGA_1150";
 				this.socketMemoria = "DDR3";
-				this.setPrecio(4800);
+				this.setPrecio(4300);
 				break;
 			}
 			case 3: {
@@ -36,7 +36,7 @@ public class Motherboard extends Componente {
 				this.setModelo("ASUS_H170_PRO");
 				this.socketProcesador = "LGA_1151";
 				this.socketMemoria = "DDR4";
-				this.setPrecio(3500);
+				this.setPrecio(2200);
 				break;
 			}
 			case 4: {
@@ -44,7 +44,7 @@ public class Motherboard extends Componente {
 				this.setModelo("ASUS_Z170_PRO");
 				this.socketProcesador = "LGA_1151";
 				this.socketMemoria = "DDR4";
-				this.setPrecio(4500);
+				this.setPrecio(2900);
 				break;
 			}
 			case 5: {
@@ -52,7 +52,7 @@ public class Motherboard extends Componente {
 				this.setModelo("ASUS_ROG_MAXIMUS_IX_HERO");
 				this.socketProcesador = "LGA_1151";
 				this.socketMemoria = "DDR4";
-				this.setPrecio(5700);
+				this.setPrecio(5200);
 				break;
 			}
 			case 6: {

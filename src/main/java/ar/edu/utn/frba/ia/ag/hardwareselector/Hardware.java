@@ -89,12 +89,12 @@ public class Hardware extends Individuo {
 		
 		//Si el procesador es Core i7, sumar 10 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I7")) {
-			puntosAptitud += 10;
+			puntosAptitud += 5;
 		}
 		
 		//Si el procesador es Core i5, sumar 3 puntos.
 		if(this.procesador.getModelo().contains("INTEL_CORE_I5")) {
-			puntosAptitud += 3;
+			puntosAptitud += 2;
 		}
 		
 		//Si el procesador es Core i3, sumar 1 puntos.
@@ -114,27 +114,27 @@ public class Hardware extends Individuo {
 		
 		//Si la RAM es DDR4, sumar 8 puntos.
 		if(this.ram.getSocket().equals("DDR4")) {
-			puntosAptitud += 8;
+			puntosAptitud += 4;
 		}
 		
 		//Si el Disco tiene una Capacidad superior a 320 GB, sumar 6 puntos.
 		if(this.ram.getCapacidad() > 8) {
-			puntosAptitud += 6;
+			puntosAptitud += 2;
 		}
 		
 		//Si la RAM es superior a 4 GB y el SO tiene arquitectura x64, sumar 5 puntos.
 		if(this.ram.getCapacidad() > 4 && this.so.getArquitectura().equals("x64")) {
-			puntosAptitud += 5;
+			puntosAptitud += 1;
 		}
 		
 		//Si el Disco tiene una Capacidad superior a 320 GB, sumar 6 puntos.
 		if(this.disco.getCapacidad() > 320) {
-			puntosAptitud += 6;
+			puntosAptitud += 3;
 		}
 		
 		//Si el Disco es SSD, sumar 3 puntos.
 		if(this.disco.getTecnologia().equals("SSD")) {
-			puntosAptitud += 3;
+			puntosAptitud += 1;
 		}
 		
 		//Si el Sistema Operativo es Windows 10 Home Edition, sumar 1 puntos.
@@ -195,7 +195,7 @@ public class Hardware extends Individuo {
 			
 			Integer precioTotal = this.procesador.getPrecio() + this.motherboard.getPrecio() + this.ram.getPrecio() + this.disco.getPrecio() + this.so.getPrecio();
 			
-			if(precioTotal > 18500) {
+			if(precioTotal > 15500) {
 				combinacionInvalida = true;
 			}
 		}
