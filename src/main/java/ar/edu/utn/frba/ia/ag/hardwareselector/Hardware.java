@@ -148,42 +148,41 @@ public class Hardware extends Individuo {
 	
 	private double verificarCombinacionesInvalidas() {
 
-		boolean combinacionInvalida = false;
 		double puntosAptitud = 0;
 		
 		// Cualquier Procesador que posea una característica marcada como inválida.	
 		if (this.getProcesador().getModelo().equals("INVALIDO")) {
-			combinacionInvalida = true;
+			puntosAptitud -= 5;
 		}
 		
 		// Cualquier Motherboard que posea una característica marcada como inválida.	
 		if (this.getMotherboard().getModelo().equals("INVALIDO")) {
-			combinacionInvalida = true;
+			puntosAptitud -= 5;
 		}
 		
 		// Cualquier Disco que posea una característica marcada como inválida.
 		if(this.disco.getModelo().equals("INVALIDO")) {
-			combinacionInvalida = true;
+			puntosAptitud -= 5;
 		}
 		
 		// Si el procesador es 4ta Gen y el Motherboard no tiene Socket 1150.
 		if(this.procesador.getGeneracion() == 4 && !this.motherboard.getSocketProcesador().equals("LGA_1150")) {
-			combinacionInvalida = true;
+			puntosAptitud -= 5;
 		}
 		
 		// Si el procesador es 6ta Gen o 7ma Gen y el Motherboard no tiene Socket 1151.
 		if((this.procesador.getGeneracion() == 6 || this.procesador.getGeneracion() == 7) && !this.motherboard.getSocketProcesador().equals("LGA_1151")) {
-			combinacionInvalida = true;
+			puntosAptitud -= 5;
 		}
 		
 		// Si la RAM es DDR4 y el Motherboard no soporta la tecnología DDR4.
 		if(this.ram.getSocket().equals("DDR4") && !this.motherboard.getSocketMemoria().equals("DDR4")) {
-			combinacionInvalida = true;
+			puntosAptitud -= 5;
 		}
 		
 		// Si la RAM es DDR3 y el Motherboard no soporta la tecnología DDR3.
 		if(this.ram.getSocket().equals("DDR3") && !this.motherboard.getSocketMemoria().equals("DDR3")) {
-			combinacionInvalida = true;
+			puntosAptitud -= 5;
 		}
 			
 		//Si la suma total del precio de todas las prestaciones es mayor a $18.500.
@@ -196,12 +195,8 @@ public class Hardware extends Individuo {
 			Integer precioTotal = this.procesador.getPrecio() + this.motherboard.getPrecio() + this.ram.getPrecio() + this.disco.getPrecio() + this.so.getPrecio();
 			
 			if(precioTotal > 15500) {
-				combinacionInvalida = true;
+				puntosAptitud -= 5;
 			}
-		}
-		
-		if(combinacionInvalida) {
-			puntosAptitud -= 50;			
 		}
 		
 		return puntosAptitud;
@@ -223,6 +218,15 @@ public class Hardware extends Individuo {
       
        return strBuilder.toString();
     }
+    
+//    @Override
+//    public String toString() {
+//      
+//       StringBuilder strBuilder = new StringBuilder();
+//       strBuilder.append(this.getCromosoma()).append(";");
+//      
+//       return strBuilder.toString();
+//    }
     
     public String getCromosoma() {
     	
