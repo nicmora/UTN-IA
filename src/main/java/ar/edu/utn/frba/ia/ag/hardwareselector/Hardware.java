@@ -223,7 +223,7 @@ public class Hardware extends Individuo {
 //    public String toString() {
 //      
 //       StringBuilder strBuilder = new StringBuilder();
-//       strBuilder.append(this.getCromosoma()).append(";");
+//       strBuilder.append(this.getCromosoma());
 //      
 //       return strBuilder.toString();
 //    }

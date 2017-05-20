@@ -17,7 +17,6 @@ public class Main {
 		//--- Configuracion ---//
         ConfiguracionDefault c = new ConfiguracionDefault();
         c.setPoblacionInicial(10);
-//        c.setCriterioDeParo(new AptitudMinima(0));
         c.setCriterioDeParo(new CantidadDeCiclos(999L));
         c.setMetodoDeSeleccion(new Torneo());
         c.setCruzamiento(new Simple());

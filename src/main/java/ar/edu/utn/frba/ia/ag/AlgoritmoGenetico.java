@@ -119,28 +119,42 @@ public class AlgoritmoGenetico {
 	
 	private void loggearEstado() {
 		
-		for (int i = 0; i < this.estado.getMejoresIndividuos().size(); i++) {
+//		try {
+//			
+//			PrintWriter pw = new PrintWriter(new File("\\Users\\Nicolas\\Desktop\\logs.csv"));
+//			StringBuilder sbMax = new StringBuilder();
+//			StringBuilder sbMin = new StringBuilder();
 			
-			Individuo individuo = this.estado.getMejoresIndividuos().get(i);
-			Double aptitudPromedio = this.estado.getAptitudesPromedio().get(i);
+			for (int i = 0; i < this.estado.getMejoresIndividuos().size(); i++) {
+				
+				Individuo individuo = this.estado.getMejoresIndividuos().get(i);
+				Double aptitudPromedio = this.estado.getAptitudesPromedio().get(i);
+				
+				Logger.getLogger(
+						Logger.GLOBAL_LOGGER_NAME).log(
+								Level.SEVERE,
+								"Promedio: "
+										+ aptitudPromedio
+										+ " // Mejor Individuo "
+										+ individuo.toString());
+				
+				System.out.println(this.estado.getMejoresIndividuos().get(i).aptitud() + "	"
+						+ this.estado.getAptitudesPromedio().get(i) + "	"
+						+ this.estado.getPeoresIndividuos().get(i).aptitud());
+				
+//				sbMax.append(this.estado.getMejoresIndividuos().get(i).aptitud()).append(",");
+//				sbMin.append(this.estado.getPeoresIndividuos().get(i).aptitud()).append(",");
+			}
+
+//			pw.write("Max:" + sbMax.toString() + "Min:" + sbMin.toString());
+//	        pw.close();
 			
-			Logger.getLogger(
-					Logger.GLOBAL_LOGGER_NAME).log(
-							Level.SEVERE,
-							"Promedio: "
-									+ aptitudPromedio
-									+ " // Mejor Individuo "
-									+ individuo.toString());
-			
-			System.out.println(this.estado.getMejoresIndividuos().get(i).aptitud() + "	"
-					+ this.estado.getAptitudesPromedio().get(i) + "	"
-					+ this.estado.getPeoresIndividuos().get(i).aptitud());
-		}
-		
-		Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).severe("Individuo mas Apto: " + this.individuos.get(0).toString());
-		
-		Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).severe("Cantidad de Veces que muto: " + this.estado.getCantMutaciones() + " / " + this.estado.getCiclos());
-		Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).severe("Individuo Campeon: " + this.estado.getMejorIndividuo());
-		Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).severe("Peor Individuo: " + this.estado.getPeorIndividuo());
+			Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).severe("Individuo mas Apto: " + this.individuos.get(0).toString());
+			Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).severe("Cantidad de Veces que muto: " + this.estado.getCantMutaciones() + " / " + this.estado.getCiclos());
+			Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).severe("Individuo Campeon: " + this.estado.getMejorIndividuo());
+			Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).severe("Peor Individuo: " + this.estado.getPeorIndividuo());
+//		} catch(Exception e) {
+//			
+//		}
 	}
 }
